@@ -4,8 +4,6 @@ namespace Pizza.API.Percistence
 {
     public class PizzaRepository(PizzaDbContext dbContext)
     {
-        private static List<Models.Pizza> _pizzas = [];
-
         public List<Models.Pizza> GetAll()
         {
             return dbContext.Pizzas.ToList();
