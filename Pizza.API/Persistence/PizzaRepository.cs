@@ -1,27 +1,27 @@
-﻿using Pizza.API.Models;
+﻿using Pizza.API.Persistence;
 
 namespace Pizza.API.Percistence
 {
-    public class PizzaRepository
+    public class PizzaRepository(PizzaDbContext dbContext)
     {
         private static List<Models.Pizza> _pizzas = [];
 
         public List<Models.Pizza> GetAll()
         {
-            return _pizzas;
+            return dbContext.Pizzas.ToList();
         }
 
         public Models.Pizza Add(Models.Pizza pizza)
         {
-            var id = _pizzas.Any() ? _pizzas.Max(p => p.Id) + 1 : 1;
-            pizza.Id = id;
-            _pizzas.Add(pizza);
+            dbContext.Pizzas.Add(pizza);
+            dbContext.SaveChanges();
+
             return pizza;
         }
 
         internal Models.Pizza GetById(int id)
         {
-            var pizza = _pizzas.FirstOrDefault(p => p.Id == id);
+            var pizza = dbContext.Pizzas.FirstOrDefault(p => p.Id == id);
 
             if (pizza is null)
             {

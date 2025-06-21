@@ -5,13 +5,16 @@ namespace Pizza.API.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class PizzaController(PizzaRepository _pizzaRepository) : ControllerBase
+    public class SaborController(PizzaRepository _pizzaRepository) : ControllerBase
     {
         [HttpPost]
-        public Models.Pizza Create(Models.Pizza pizza)
+        public ActionResult<Models.Pizza> Create(Models.Pizza pizza)
         {
             _pizzaRepository.Add(pizza);
-            return pizza;
+            return CreatedAtAction(
+                nameof(GetById),
+                new { id = pizza.Id },
+                pizza);
         }
 
         [HttpGet]
