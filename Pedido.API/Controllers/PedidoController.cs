@@ -22,9 +22,9 @@ namespace Pedidos.API.Controllers
         }
 
         [HttpPost]
-        public Pedido Add(Pedido pedido)
+        public async Task<Pedido> Add(Pedido pedido)
         {
-            return pedidoService.Add(pedido);
+            return await pedidoService.Add(pedido);
         }
     }
 }

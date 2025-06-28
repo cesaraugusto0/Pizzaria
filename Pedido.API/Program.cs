@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Pedidos.API.HttpClients;
 using Pedidos.API.Persistence;
 using Pedidos.API.Services;
 
@@ -13,6 +14,8 @@ builder.Services.AddDbContext<PedidoDbContext>(options =>
 
 builder.Services.AddScoped<PedidoRepository>();
 builder.Services.AddScoped<PedidoService>();
+
+builder.Services.AddHttpClient<PizzaApiHttpClient.Client>();
 
 var app = builder.Build();
 

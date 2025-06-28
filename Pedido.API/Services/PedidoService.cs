@@ -1,10 +1,13 @@
 ﻿using Pedidos.API.Exceptions;
+using Pedidos.API.HttpClients;
 using Pedidos.API.Models;
 using Pedidos.API.Persistence;
 
 namespace Pedidos.API.Services
 {
-    public class PedidoService(PedidoRepository repository)
+    public class PedidoService(
+        PedidoRepository repository,
+        PizzaApiHttpClient.Client pizzaApi)
     {
         // Obter por id
         public Pedido GetById(Guid id)
@@ -26,9 +29,14 @@ namespace Pedidos.API.Services
         }
 
         // Adicionar
-        public Pedido Add(Pedido pedido)
+        public async Task<Pedido> Add(Pedido pedido)
         {
             // 1. Verificar se pizza existe
+            var estoque = await pizzaApi.GetEstoque(pedido.PizzaId);
+            if (estoque == null || estoque.Quantidade < pedido.Quantidade)
+            {
+                throw new Exception("Estoque insuficiente");
+            }
             // 2. Salvar o pedido
             repository.Add(pedido);
             // 3. Atualiza o estoque
