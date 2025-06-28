@@ -58,6 +58,35 @@
 			"response": []
 		},
 		{
+			"name": "Update Estoque By PizzaId",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"pizzaId\": 1,\r\n    \"quantidade\": {{$randomInt}}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{pizzaurl}}/estoque/pizza/1/90",
+					"host": [
+						"{{pizzaurl}}"
+					],
+					"path": [
+						"estoque",
+						"pizza",
+						"1",
+						"90"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Get pizzas",
 			"request": {
 				"method": "GET",
@@ -76,6 +105,23 @@
 		},
 		{
 			"name": "Get Estoques",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{pizzaurl}}/estoque",
+					"host": [
+						"{{pizzaurl}}"
+					],
+					"path": [
+						"estoque"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Estoque By PizzaId",
 			"request": {
 				"method": "GET",
 				"header": [],

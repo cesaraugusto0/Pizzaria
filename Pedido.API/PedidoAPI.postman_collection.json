@@ -85,19 +85,12 @@
 					}
 				},
 				"url": {
-					"raw": "{{pedidourl}}/pedido/:id",
+					"raw": "{{pedidourl}}/pedido",
 					"host": [
 						"{{pedidourl}}"
 					],
 					"path": [
-						"pedido",
-						":id"
-					],
-					"variable": [
-						{
-							"key": "id",
-							"value": "05854681-7ac2-409b-aaa1-c5b8520822fd"
-						}
+						"pedido"
 					]
 				}
 			},
