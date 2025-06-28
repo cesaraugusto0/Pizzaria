@@ -1,0 +1,19 @@
+services:
+  consul:
+    image: hashicorp/consul:latest
+    container_name: "consul"
+    ports:
+      - "5001:8500"
+ 
+  pedidos.api:
+    image: ${DOCKER_REGISTRY-}pedidosapi
+    build:
+      context: .
+      dockerfile: Pedido.API/Dockerfile
+
+  pizza.api:
+    image: ${DOCKER_REGISTRY-}pizzaapi
+    build:
+      context: .
+      dockerfile: Pizza.API/Dockerfile
+

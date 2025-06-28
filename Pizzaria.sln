@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pizza.API", "Pizza.API\Pizz
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pedidos.API", "Pedido.API\Pedidos.API.csproj", "{7B7D3E4C-F0C9-4EEF-9CB5-FD92157B13D4}"
 EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{62B23566-1D31-423D-9761-394216228C9D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{7B7D3E4C-F0C9-4EEF-9CB5-FD92157B13D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7B7D3E4C-F0C9-4EEF-9CB5-FD92157B13D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7B7D3E4C-F0C9-4EEF-9CB5-FD92157B13D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62B23566-1D31-423D-9761-394216228C9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62B23566-1D31-423D-9761-394216228C9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62B23566-1D31-423D-9761-394216228C9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62B23566-1D31-423D-9761-394216228C9D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
