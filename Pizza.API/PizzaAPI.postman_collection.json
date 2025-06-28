@@ -126,12 +126,20 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{pizzaurl}}/estoque",
+					"raw": "{{pizzaurl}}/estoque/pizza/:pizzaId",
 					"host": [
 						"{{pizzaurl}}"
 					],
 					"path": [
-						"estoque"
+						"estoque",
+						"pizza",
+						":pizzaId"
+					],
+					"variable": [
+						{
+							"key": "pizzaId",
+							"value": "1"
+						}
 					]
 				}
 			},

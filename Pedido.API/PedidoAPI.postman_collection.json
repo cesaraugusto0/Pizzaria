@@ -69,21 +69,9 @@
 		},
 		{
 			"name": "Get Pedidos",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"cliente\": \"{{$randomEmail}}\",\r\n    \"pizzaId\": 1,\r\n    \"quantidade\": 1\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
 				"url": {
 					"raw": "{{pedidourl}}/pedido",
 					"host": [
