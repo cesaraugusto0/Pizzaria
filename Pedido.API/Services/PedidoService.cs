@@ -37,9 +37,12 @@ namespace Pedidos.API.Services
             {
                 throw new Exception("Estoque insuficiente");
             }
+            
             // 2. Salvar o pedido
-            repository.Add(pedido);
             // 3. Atualiza o estoque
+            await pizzaApi.UpdateEstoque(pedido.PizzaId, pedido.Quantidade);
+            repository.Add(pedido);
+            
             // 4. Notificar o cliente
 
             return pedido;
