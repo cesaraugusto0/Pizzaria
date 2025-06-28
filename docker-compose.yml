@@ -4,16 +4,33 @@ services:
     container_name: "consul"
     ports:
       - "5001:8500"
- 
-  pedidos.api:
-    image: ${DOCKER_REGISTRY-}pedidosapi
+
+  pedidosapi:
+    # image: ${DOCKER_REGISTRY-}pedidosapi
     build:
       context: .
       dockerfile: Pedido.API/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIROMENT=Development
+      - ASPNETCORE_HTTP_PORTS=8080
 
-  pizza.api:
-    image: ${DOCKER_REGISTRY-}pizzaapi
+  pizzaapi:
+    # image: ${DOCKER_REGISTRY-}pizzaapi
     build:
       context: .
       dockerfile: Pizza.API/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIROMENT=Development
+      - ASPNETCORE_HTTP_PORTS=8080
+
+  gatewayapi:
+    image: ${DOCKER_REGISTRY-}gatewayapi
+    build:
+      context: .
+      dockerfile: Gateway.API/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIROMENT=Development
+      - ASPNETCORE_HTTP_PORTS=8080
+    ports:
+      - "3001:8080"
 
