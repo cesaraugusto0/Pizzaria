@@ -13,6 +13,8 @@ services:
     environment:
       - ASPNETCORE_ENVIROMENT=Development
       - ASPNETCORE_HTTP_PORTS=8080
+    ports:
+      - "4002:8080"
 
   pizzaapi:
     # image: ${DOCKER_REGISTRY-}pizzaapi
@@ -22,6 +24,8 @@ services:
     environment:
       - ASPNETCORE_ENVIROMENT=Development
       - ASPNETCORE_HTTP_PORTS=8080
+    ports:
+      - "4003:8080"
 
   gatewayapi:
     image: ${DOCKER_REGISTRY-}gatewayapi
