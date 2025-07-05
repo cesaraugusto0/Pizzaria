@@ -1,3 +1,8 @@
+# Projeto do curso
+# Alunos:
+# - Cesar Augusto Cardoso
+# - Gabryel Marcal
+
 services:
   consul:
     image: hashicorp/consul:latest
@@ -18,7 +23,7 @@ services:
       - "4001:8080"
 
   pedidosapi:
-    # image: ${DOCKER_REGISTRY-}pedidosapi
+    image: cesaraugusto0/pedidosapi
     build:
       context: .
       dockerfile: Pedido.API/Dockerfile
@@ -29,7 +34,7 @@ services:
       - "4002:8080"
 
   pizzaapi:
-    # image: ${DOCKER_REGISTRY-}pizzaapi
+    image: cesaraugusto0/pizzaapi
     build:
       context: .
       dockerfile: Pizza.API/Dockerfile
@@ -40,7 +45,7 @@ services:
       - "4003:8080"
 
   gatewayapi:
-    image: ${DOCKER_REGISTRY-}gatewayapi
+    image: cesaraugusto0/gatewayapi
     build:
       context: .
       dockerfile: Gateway.API/Dockerfile
