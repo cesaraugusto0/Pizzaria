@@ -22,9 +22,10 @@ namespace Pedidos.API.Controllers
         }
 
         [HttpPost]
-        public async Task<Pedido> Add(Pedido pedido)
+        public async Task<ActionResult<Pedido>> Add(Pedido pedido)
         {
-            return await pedidoService.Add(pedido);
+            await pedidoService.Add(pedido);
+            return CreatedAtAction(nameof(GetById), new {id = pedido.Id}, pedido);
         }
     }
 }
