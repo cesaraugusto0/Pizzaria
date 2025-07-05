@@ -8,6 +8,7 @@ using Steeltoe.Discovery.Consul;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddHealthChecks();
 builder.Services.AddServiceDiscovery(options =>
     options.UseConsul());
 
@@ -39,4 +40,5 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+app.UseHealthChecks("/health");
 app.Run();
