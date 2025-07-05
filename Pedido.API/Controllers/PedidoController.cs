@@ -10,9 +10,16 @@ namespace Pedidos.API.Controllers
     {
 
         [HttpGet("{id}")]
-        public Pedido GetById(Guid id)
+        public async Task<ActionResult<Pedido>> GetById(Guid id)
         {
-            return pedidoService.GetById(id);
+            try
+            {
+                return pedidoService.GetById(id);
+            }
+            catch (System.Exception ex)
+            {
+                return NotFound(ex.Message);
+            }
         }
 
         [HttpGet]
