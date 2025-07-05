@@ -13,6 +13,7 @@ services:
     environment:
       - ASPNETCORE_ENVIROMENT=Development
       - ASPNETCORE_HTTP_PORTS=8080
+      - Consul__Discovery__Hostname=notificacoesapi
     ports:
       - "4001:8080"
 
